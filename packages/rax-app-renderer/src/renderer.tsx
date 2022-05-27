@@ -1,6 +1,6 @@
 /* eslint-disable */
 import { render, createElement, Fragment, FunctionComponent } from 'rax';
-import { isWeb, isWeex, isKraken } from 'universal-env';
+import { isWeb, isWeex, isKraken, isNativeJS } from 'universal-env';
 import UniversalDriver from 'driver-universal';
 import { IContext, RenderOptions } from './types';
 import { setInitialData } from './initialData';
@@ -68,7 +68,7 @@ function _render(runtime: RuntimeModule, context: IContext, options: RenderOptio
 }
 
 function _getAppMountNode(mountNode: HTMLElement, rootId: string = 'root') {
-  if (isWeex || isKraken) return null;
+  if (isWeex || isKraken || isNativeJS) return null;
   return mountNode || document.getElementById(rootId);
 }
 

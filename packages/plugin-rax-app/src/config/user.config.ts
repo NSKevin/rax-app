@@ -24,7 +24,11 @@ const devServerDefaultOptionsMap = {
         next();
       });
     },
-    hot: true,
+    // NSK Disable HotReload
+    // hot: true,
+    hot: false,
+    inline: false,
+    injectClient: false,
     // For mutilple task, web will occupy the server root route
     writeToDisk: true,
     historyApiFallback: true,
@@ -32,7 +36,9 @@ const devServerDefaultOptionsMap = {
   webpack5: {
     allowedHosts: 'all',
     compress: true,
-    hot: true,
+    // NSK Disable HotReload
+    // hot: true,
+    hot: false,
     static: {
       watch: {
         ignored: /node_modules/,
@@ -58,6 +64,11 @@ const devServerDefaultOptionsMap = {
       publicPath: '/',
     },
     liveReload: false,
+
+    // NSK Disable
+    inline: false,
+    injectClient: false,
+    
     historyApiFallback: true,
   },
 };

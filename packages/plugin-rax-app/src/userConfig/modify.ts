@@ -1,6 +1,6 @@
 import hasOwnProperty from '../utils/hasOwnProperty';
 import logDeprecatedConfig from '../utils/logDeprecatedConfig';
-import { KRAKEN, WEB, MINIAPP, WECHAT_MINIPROGRAM, BYTEDANCE_MICROAPP, WEEX, DEPRECATED_CONFIG, MINIAPP_PLATFORMS } from '../constants';
+import { KRAKEN, WEB, MINIAPP, WECHAT_MINIPROGRAM, BYTEDANCE_MICROAPP, WEEX, NATIVEJS, DEPRECATED_CONFIG, MINIAPP_PLATFORMS } from '../constants';
 
 const taskList = [
   {
@@ -13,6 +13,9 @@ const taskList = [
   {
     name: KRAKEN,
   },
+  {
+    name: NATIVEJS,
+  }
 ];
 
 [MINIAPP, WECHAT_MINIPROGRAM, BYTEDANCE_MICROAPP].forEach((target) => {

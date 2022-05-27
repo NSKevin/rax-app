@@ -15,21 +15,6 @@
     }
   ],
   "spm": "a123",
-  "tabBar": {
-    "textColor": "#dddddd",
-    "selectedColor": "#49a9ee",
-    "backgroundColor": "#ffffff",
-    "items": [
-      {
-        "text": "Home Page",
-        "pageName": "home"
-      },
-      {
-        "path": "https://m.taobao.com",
-        "text": "TaoBao"
-      }
-    ]
-  },
   "window": {
     "title": "Rax App"
   }

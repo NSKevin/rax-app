@@ -11,6 +11,7 @@ module.exports = function traverseImport(options, inputSource, sourceMapOption) 
   const { sourceFileName } = sourceMapOption;
 
   const platformMap = {
+    nativejs: ['isNativeJS'],
     weex: ['isWeex'],
     web: ['isWeb'],
     kraken: ['isKraken', 'isWeb'],

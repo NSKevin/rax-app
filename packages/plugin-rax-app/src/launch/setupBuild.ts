@@ -9,6 +9,7 @@ import {
   WEB,
   WEEX,
   KRAKEN,
+  NATIVEJS
 } from '../constants';
 
 const highlightPrint = chalk.hex('#F4AF3D');
@@ -60,6 +61,15 @@ export default (api) => {
         console.log(
           '   ',
           chalk.underline.white(path.resolve(rootDir, outputDir, KRAKEN)),
+        );
+        console.log();
+      }
+
+      if (targets.includes(NATIVEJS)) {
+        console.log(highlightPrint('[NativeJS] Bundle at:'));
+        console.log(
+          '   ',
+          chalk.underline.white(path.resolve(rootDir, outputDir, NATIVEJS)),
         );
         console.log();
       }

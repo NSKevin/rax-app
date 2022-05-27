@@ -4,6 +4,7 @@ const {
   DOCUMENT,
   SSR,
   KRAKEN,
+  NATIVEJS,
   MINIAPP,
   WECHAT_MINIPROGRAM,
   BYTEDANCE_MICROAPP,
@@ -16,7 +17,8 @@ const getPostCssPlugin = require('../../getPostCssPlugin');
 
 const webStandardList = [WEB, KRAKEN];
 
-const inlineStandardList = [WEEX];
+//TODO: NSK inline配置是否向Web拉齐
+const inlineStandardList = [WEEX, NATIVEJS];
 
 const miniappStandardList = [MINIAPP, WECHAT_MINIPROGRAM, BYTEDANCE_MICROAPP, BAIDU_SMARTPROGRAM, KUAISHOU_MINIPROGRAM];
 

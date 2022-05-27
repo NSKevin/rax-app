@@ -7,7 +7,7 @@ import chokidar from 'chokidar';
 import { platformMap } from 'miniapp-builder-shared';
 
 import logWebpackConfig from '../utils/logWebpackConfig';
-import { MINIAPP_PLATFORMS, MINIAPP, WEB, WEEX, KRAKEN, DEV_URL_PREFIX } from '../constants';
+import { MINIAPP_PLATFORMS, MINIAPP, WEB, WEEX, KRAKEN, NATIVEJS, DEV_URL_PREFIX } from '../constants';
 import generateTempFile from '../utils/generateTempFile';
 import formatMessage from '../utils/formatMessage';
 
@@ -20,6 +20,7 @@ interface IDevInfo {
     weex?: string[];
     kraken?: string[];
     pha?: string[];
+    nativejs?: string[];
   };
   compiledTime?: number;
   publicPath?: string;
@@ -51,9 +52,11 @@ export default function (api) {
   let webEntryKeys = [];
   let weexEntryKeys = [];
   let krakenEntryKeys = [];
+  let nativejsEntryKeys = [];
   let webMpa = false;
   let weexMpa = false;
   let krakenMpa = false;
+  let nativejsMpa = false;
   let isFirstCompile = true;
   let pha = false;
   watchAppJson(rootDir, log);
@@ -78,16 +81,19 @@ export default function (api) {
     const webWebpackInfo = getWebpackInfo(configs, 'web');
     const weexWebpackInfo = getWebpackInfo(configs, 'weex');
     const krakenWebpackInfo = getWebpackInfo(configs, 'kraken');
+    const nativejsWebpackInfo = getWebpackInfo(configs, 'nativejs');
 
     devInfo.publicPath = webWebpackInfo.publicPath;
 
     webEntryKeys = Object.keys(webWebpackInfo.entry);
     weexEntryKeys = Object.keys(weexWebpackInfo.entry);
     krakenEntryKeys = Object.keys(krakenWebpackInfo.entry);
+    nativejsEntryKeys = Object.keys(nativejsWebpackInfo.entry);
 
     webMpa = userConfig.web && userConfig.web.mpa;
     weexMpa = userConfig.weex && userConfig.weex.mpa;
     krakenMpa = userConfig.kraken && userConfig.kraken.mpa;
+    nativejsMpa = userConfig.nativejs && userConfig.nativejs.mpa;
     pha = userConfig.web && userConfig.web.pha;
 
     // Remove outputDir when start devServer
@@ -199,6 +205,19 @@ export default function (api) {
           devInfo.urls.weex.push(weexUrl);
           console.log(`  ${chalk.underline.white(weexUrl)}`);
           qrcode.generate(weexUrl, { small: true });
+        });
+        console.log();
+      }
+
+      if (targets.includes(NATIVEJS)) {
+        devInfo.urls.nativejs = [];
+        // Use NativeJS App to scan ip address (mobile phone can't visit localhost).
+        console.log(highlightPrint('  [NativeJS] Development server at: '));
+        nativejsEntryKeys.forEach((entryKey) => {
+          const nativejsUrl = `${urlPrefix}/nativejs/${nativejsMpa ? entryKey : 'index'}.js`;
+          devInfo.urls.nativejs.push(nativejsUrl);
+          console.log(`  ${chalk.underline.white(nativejsUrl)}`);
+          qrcode.generate(nativejsUrl, { small: true });
         });
         console.log();
       }

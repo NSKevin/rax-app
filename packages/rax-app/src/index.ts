@@ -52,6 +52,10 @@ const getBuiltInPlugins: IGetBuiltInPlugins = (userConfig: IRaxAppUserConfig) =>
     builtInPlugins.push('build-plugin-rax-kraken');
   }
 
+  if (targets.includes('nativejs')) {
+    builtInPlugins.push('build-plugin-rax-nativejs');
+  }
+
   const isMiniAppTargeted = targets.some((target) => miniappPlatforms.includes(target));
 
   if (isMiniAppTargeted) {

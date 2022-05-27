@@ -7,9 +7,12 @@ export default function (config) {
     const entryFiles = entrySet.values();
     const finalEntryFile = entryFiles[entryFiles.length - 1];
     // Add webpack hot dev client for webpack4
+
+    // NSK Disable HotReload
     if (isWebpack4) {
       entrySet.prepend(require.resolve('react-dev-utils/webpackHotDevClient'));
     }
+
     // Add module.hot.accept() to entry
     entrySet.add(`${require.resolve('../Loaders/HmrLoader')}!${finalEntryFile}`);
     entrySet.delete(finalEntryFile);

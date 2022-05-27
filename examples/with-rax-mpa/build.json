@@ -1,12 +1,8 @@
 {
-  "targets": ["web", "weex", "kraken"],
-  "weex": {
-    "mpa": true
-  },
-  "kraken": {
-    "mpa": true
-  },
-  "web": {
+  "targets": [
+    "nativejs"
+  ],
+  "nativejs": {
     "mpa": true
   }
 }
