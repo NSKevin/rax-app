@@ -9,7 +9,7 @@ import {
   WEB,
   WEEX,
   KRAKEN,
-  NATIVEJS
+  NATIVEJS,
 } from '../constants';
 
 const highlightPrint = chalk.hex('#F4AF3D');

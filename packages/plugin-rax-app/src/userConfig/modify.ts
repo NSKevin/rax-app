@@ -15,7 +15,7 @@ const taskList = [
   },
   {
     name: NATIVEJS,
-  }
+  },
 ];
 
 [MINIAPP, WECHAT_MINIPROGRAM, BYTEDANCE_MICROAPP].forEach((target) => {

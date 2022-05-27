@@ -17,7 +17,7 @@ const getPostCssPlugin = require('../../getPostCssPlugin');
 
 const webStandardList = [WEB, KRAKEN];
 
-//TODO: NSK inline配置是否向Web拉齐
+// TODO: NSK inline配置是否向Web拉齐
 const inlineStandardList = [WEEX, NATIVEJS];
 
 const miniappStandardList = [MINIAPP, WECHAT_MINIPROGRAM, BYTEDANCE_MICROAPP, BAIDU_SMARTPROGRAM, KUAISHOU_MINIPROGRAM];

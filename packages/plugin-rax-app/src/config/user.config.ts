@@ -68,7 +68,7 @@ const devServerDefaultOptionsMap = {
     // NSK Disable
     inline: false,
     injectClient: false,
-    
+
     historyApiFallback: true,
   },
 };
